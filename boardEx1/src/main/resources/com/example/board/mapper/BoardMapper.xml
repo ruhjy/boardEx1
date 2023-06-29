@@ -18,11 +18,12 @@
     </select>
 
     <update id="update">
-        update Board
+        update board
         set
             title = #{title},
             content = #{content},
-            writer = #{writer}
+            writer = #{writer},
+            modified_date = #{modified_date}
         where id = #{id}
     </update>
 

@@ -23,8 +23,17 @@ public class BoardService {
     private final BoardMapper boardMapper;
 
     public Long save(final BoardRequestDto params) {
-        Board savedBoard = boardMapper.save(params.toEntity());
-        return savedBoard.getId();
+
+        Board board = Board.builder()
+                .title(params.getTitle())
+                .content(params.getContent())
+                .writer(params.getWriter())
+                .hits(0)
+                .delete_yn(params.getDelete_yn())
+                .build();
+
+        boardMapper.save(board);
+        return board.getId();
     }
 
     @Transactional(readOnly = true)
