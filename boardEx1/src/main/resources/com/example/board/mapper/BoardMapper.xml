@@ -14,7 +14,18 @@
 
     <select id="findAll" resultType="Board">
         select * from board
+        order by id desc, created_date desc
     </select>
+
+    <update id="update">
+        update board
+        set
+            title = #{title},
+            content = #{content},
+            writer = #{writer},
+            modified_date = #{modified_date}
+        where id = #{id}
+    </update>
 
     <delete id="deleteById">
         delete from board where id = #{id}
