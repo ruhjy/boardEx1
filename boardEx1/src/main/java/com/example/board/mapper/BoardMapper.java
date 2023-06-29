@@ -9,11 +9,13 @@ import java.util.Optional;
 @Mapper
 public interface BoardMapper {
 
-    void save(Board board);
+    Board save(Board board);
 
     Optional<Board> findById(Long id);
 
     List<Board> findAll();
+
+    void update(Board board);
 
     void deleteById(Long id);
 
